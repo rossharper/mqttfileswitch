@@ -125,7 +125,7 @@ function stateFromPayload (payload) {
 }
 
 function run (args) {
-    const device = args.switchName.replace(/\s/g, "_")
+    const device = args.switchName.toLowerCase().replace(/\s/g, "_")
     const deviceCommandTopic = `home/switch/${device}/set`
     const client = mqtt.connect(`mqtt://${args.mqttBrokerAddr}`, { username: args.username, password: args.password })
     client.on('connect', function () {
